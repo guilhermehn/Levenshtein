@@ -9,10 +9,10 @@ describe('levenshtein()', function () {
   })
 
   it('should calc Leveinstein distance', function () {
-    var l2 = new Levenshtein( 'Saturday', 'Sunday' )
+    var l2 = new Levenshtein('Saturday', 'Sunday')
 
     assert.equal(l1.distance, 3, 'kitten <=> sitting')
-    assert.equal(l1.distance, 3, 'Saturday <=> Sunday')
+    assert.equal(l2.distance, 3, 'Saturday <=> Sunday')
   })
 
   it('could be coerced to a number', function () {
