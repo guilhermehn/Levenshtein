@@ -15,6 +15,12 @@ describe('levenshtein()', function () {
     assert.equal(l2.distance, 3, 'Saturday <=> Sunday')
   })
 
+  it('should not ignore case', function () {
+    var l2 = new Levenshtein('Lorem', 'lorem')
+
+    assert.equal(l2.distance, 1)
+  })
+
   it('could be coerced to a number', function () {
     assert.equal(l1 + 0, l1.distance)
   })
