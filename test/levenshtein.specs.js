@@ -30,6 +30,11 @@ describe('levenshtein()', function () {
     assert.equal(distance3, 1)
   })
 
+  it('should return a function if only one string is provided', function () {
+    var distanceFromKitten = Levenshtein('kitten')
+    assert.equal(distanceFromKitten('sitting'), 3)
+  })
+
   describe('#inspect()', function () {
     it('should return the distance in string', function() {
       assert.equal(distance1.inspect(), new String(distance1))
