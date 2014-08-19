@@ -2,40 +2,45 @@ var assert = require('assert')
   , Levenshtein = require('../')
 
 describe('levenshtein()', function () {
-  var l1
+  var distance1
 
   beforeEach(function () {
-    l1 = new Levenshtein('kitten', 'sitting')
+    distance1 = new Levenshtein('kitten', 'sitting')
   })
 
   it('should calc Leveinstein distance', function () {
-    var l2 = new Levenshtein('Saturday', 'Sunday')
+    var distance2 = new Levenshtein('Saturday', 'Sunday')
 
-    assert.equal(l1.distance, 3, 'kitten <=> sitting')
-    assert.equal(l2.distance, 3, 'Saturday <=> Sunday')
+    assert.equal(distance1.distance, 3, 'kitten <=> sitting')
+    assert.equal(distance2.distance, 3, 'Saturday <=> Sunday')
   })
 
   it('should not ignore case', function () {
-    var l2 = new Levenshtein('Lorem', 'lorem')
+    var distance2 = new Levenshtein('Lorem', 'lorem')
 
-    assert.equal(l2.distance, 1)
+    assert.equal(distance2.distance, 1)
   })
 
   it('could be coerced to a number', function () {
-    assert.equal(l1 + 0, l1.distance)
+    assert.equal(distance1 + 0, distance1.distance)
+  })
+
+  it('should work with symbols', function () {
+    var distance3 = new Levenshtein('!@#', '!@#$')
+    assert.equal(distance3, 1)
   })
 
   describe('#inspect()', function () {
     it('should return the distance in string', function() {
-      assert.equal(l1.inspect(), new String(l1))
+      assert.equal(distance1.inspect(), new String(distance1))
     })
   })
 
   describe('#getMatrix()', function () {
     it('should return the distance matrix', function () {
-      assert.ok(l1.getMatrix() instanceof Array)
-      assert.ok(l1.getMatrix()[0].length)
-      assert.ok(l1.getMatrix()[0] instanceof Array)
+      assert.ok(distance1.getMatrix() instanceof Array)
+      assert.ok(distance1.getMatrix()[0].length)
+      assert.ok(distance1.getMatrix()[0] instanceof Array)
     })
   })
 })
