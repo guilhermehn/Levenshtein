@@ -1,6 +1,6 @@
 # levenshtein-dist
 
-[Levenshtein][wikipedia] distance calculator
+[Levenshtein](http://en.wikipedia.org/wiki/Levenshtein_distance) distance calculator
 
 ## Installation
 
