@@ -2,7 +2,7 @@
   "name": "levenshtein-dist",
   "description": "Levenshtein distance calculator",
   "author": "Guilherme Nagatomo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./index.js",
   "engines": [
     "node >=0.8.0"
